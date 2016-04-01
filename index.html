@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body { margin: 0px; padding: 0px; }
+      canvas { border: 1px solid #9C9898; }
+    </style>
+    <script src="http://www.html5canvastutorials.com/libraries/kinetic-v4.7.1-beta.js"></script>
+    <script>
+ 
+      var socket = new WebSocket("ws://84.193.214.148:8080/ws");
+ 
+      socket.onopen = function(){  
+        console.log("connected"); 
+      }; 
+ 
+      socket.onmessage = function (message) {
+        console.log("receiving: " + message.data);
+      };
+ 
+      socket.onclose = function(){
+        console.log("disconnected"); 
+      };
+ 
+      sendMessage = function(message) {
+        socket.send(message);
+      };
+ 
+      var value = 0;
+ 
+      window.onload = function() {
+        var stage = new Kinetic.Stage({
+          container: "container",
+          width: 200,
+          height: 140
+        });
+ 
+        var layer  = new Kinetic.Layer();
+	var circle = new Kinetic.Circle({
+		x: 100,
+		y: 100,
+		radius: 10,
+		fill: "red",
+		stroke: "black",
+		strokeWidth: 4,
+		draggable: true
+        });
+ 
+        circle.on("mousedown", function() {
+          value = value + 40;
+          console.log('sending: ' + value);
+          sendMessage("{value:" + value + "}");
+        });
+ 
+        layer.add(circle);
+        stage.add(layer);
+      };
+ 
+    </script>
+  </head>
+  <body>
+    <h1>Websockettest for Picar1</h1>
+    <p>This is a websocket testpage for Willem Dauwen's thesis at UCLL, formerly known as ACE Group T</p>
+    <p>The aim of this project is to drive an RC car over wifi signals from a remote pc, tablet or mobile device</p> 	
+    <div id="container"></div>
+  </body>
+</html>
