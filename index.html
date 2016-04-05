@@ -8,7 +8,7 @@
     <script src="http://www.html5canvastutorials.com/libraries/kinetic-v4.7.1-beta.js"></script>
     <script>
  
-      var socket = new WebSocket("ws://84.193.214.148:8080/ws");
+      var socket = new WebSocket("ws://" + window.location.hostname + ":" + window.location.port + "/ws");
  
       socket.onopen = function(){  
         console.log("connected"); 
@@ -47,12 +47,30 @@
         });
  
         circle.on("mousedown", function() {
-          value = value + 40;
-          console.log('sending: ' + value);
-          sendMessage("{value:" + value + "}");
+          var timedelay = 0.030
+          sendMessage(JSON.stringify({forward: timedelay}));
         });
  
         layer.add(circle);
+
+        var circle2 = new Kinetic.Circle({
+		x: 50,
+		y: 50,
+		radius: 10,
+		fill: "red",
+		stroke: "black",
+		strokeWidth: 4,
+		draggable: true
+        });
+ 
+        circle2.on("mousedown", function() {
+          var timedelay = 0.030
+          sendMessage(JSON.stringify({reverse: timedelay}));
+        });
+ 
+        layer.add(circle2);
+	
+
         stage.add(layer);
       };
  
