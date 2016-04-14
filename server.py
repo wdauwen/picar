@@ -26,6 +26,10 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
             # message from websocket to function called
             'forward': robot.forward,
             'reverse': robot.reverse,
+	    'right' : robot.turn_right,
+	    'left' : robot.turn_left,
+            'pivotright' : robot.pivot_right,
+            'pivotleft' : robot.pivot_left,
         }
         message_dict = json.loads(message)
         for command, value in message_dict.items():

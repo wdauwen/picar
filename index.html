@@ -32,21 +32,21 @@
         var stage = new Kinetic.Stage({
           container: "container",
           width: 200,
-          height: 140
+          height: 300
         });
  
         var layer  = new Kinetic.Layer();
 	var circle = new Kinetic.Circle({
 		x: 100,
-		y: 100,
-		radius: 10,
-		fill: "red",
+		y: 50,
+		radius: 30,
+		fill: "blue",
 		stroke: "black",
 		strokeWidth: 4,
-		draggable: true
+		draggable: false
         });
  
-        circle.on("mousedown", function() {
+        circle.on("touchmove", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({forward: timedelay}));
         });
@@ -54,13 +54,13 @@
         layer.add(circle);
 
         var circle2 = new Kinetic.Circle({
-		x: 50,
-		y: 50,
-		radius: 10,
-		fill: "red",
+		x: 100,
+		y: 200,
+		radius: 30,
+		fill: "green",
 		stroke: "black",
 		strokeWidth: 4,
-		draggable: true
+		draggable: false
         });
  
         circle2.on("mousedown", function() {
@@ -70,6 +70,73 @@
  
         layer.add(circle2);
 	
+	var circle3 = new Kinetic.Circle({
+                x: 150,
+                y: 150,
+                radius: 10,
+                fill: "red",
+                stroke: "black",
+                strokeWidth: 4,
+                draggable: false
+        });
+
+        circle3.on("mousedown", function() {
+          var timedelay = 0.030
+          sendMessage(JSON.stringify({right: timedelay}));
+        });
+
+        layer.add(circle3);
+	
+	var circle4 = new Kinetic.Circle({
+                x: 50,
+                y: 150,
+                radius: 10,
+                fill: "red",
+                stroke: "black",
+                strokeWidth: 4,
+                draggable: false
+        });
+
+        circle4.on("mousedown", function() {
+          var timedelay = 0.030
+          sendMessage(JSON.stringify({left: timedelay}));
+        });
+
+        layer.add(circle4);
+	
+	 var circle5 = new Kinetic.Circle({
+                x: 150,
+                y: 250,
+                radius: 10,
+                fill: "red",
+                stroke: "black",
+                strokeWidth: 4,
+                draggable: false
+        });
+
+        circle5.on("mousedown", function() {
+          var timedelay = 0.030
+          sendMessage(JSON.stringify({pivotright: timedelay}));
+        });
+
+        layer.add(circle5);
+
+	 var circle6 = new Kinetic.Circle({
+                x: 50,
+                y: 250,
+                radius: 10,
+                fill: "red",
+                stroke: "black",
+                strokeWidth: 4,
+                draggable: false
+        });
+
+        circle6.on("mousedown", function() {
+          var timedelay = 0.030
+          sendMessage(JSON.stringify({pivotleft: timedelay}));
+        });
+
+        layer.add(circle6);	
 
         stage.add(layer);
       };
