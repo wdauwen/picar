@@ -63,7 +63,7 @@
 		draggable: false
         });
  
-        circle2.on("mousedown", function() {
+        circle2.on("touchmove", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({reverse: timedelay}));
         });
@@ -73,14 +73,14 @@
 	var circle3 = new Kinetic.Circle({
                 x: 150,
                 y: 150,
-                radius: 10,
+                radius: 30,
                 fill: "red",
                 stroke: "black",
                 strokeWidth: 4,
                 draggable: false
         });
 
-        circle3.on("mousedown", function() {
+        circle3.on("touchmove", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({right: timedelay}));
         });
@@ -90,14 +90,14 @@
 	var circle4 = new Kinetic.Circle({
                 x: 50,
                 y: 150,
-                radius: 10,
+                radius: 30,
                 fill: "red",
                 stroke: "black",
                 strokeWidth: 4,
                 draggable: false
         });
 
-        circle4.on("mousedown", function() {
+        circle4.on("touchmove", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({left: timedelay}));
         });
@@ -107,14 +107,14 @@
 	 var circle5 = new Kinetic.Circle({
                 x: 150,
                 y: 250,
-                radius: 10,
+                radius: 30,
                 fill: "red",
                 stroke: "black",
                 strokeWidth: 4,
                 draggable: false
         });
 
-        circle5.on("mousedown", function() {
+        circle5.on("touchmove", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({pivotright: timedelay}));
         });
@@ -124,14 +124,14 @@
 	 var circle6 = new Kinetic.Circle({
                 x: 50,
                 y: 250,
-                radius: 10,
+                radius: 30,
                 fill: "red",
                 stroke: "black",
                 strokeWidth: 4,
                 draggable: false
         });
 
-        circle6.on("mousedown", function() {
+        circle6.on("touchmove", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({pivotleft: timedelay}));
         });
