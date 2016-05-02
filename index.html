@@ -46,7 +46,7 @@
 		draggable: false
         });
  
-        circle.on("touchmove", function() {
+        circle.on("mousedown", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({forward: timedelay}));
         });
@@ -63,7 +63,7 @@
 		draggable: false
         });
  
-        circle2.on("touchmove", function() {
+        circle2.on("mousedown", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({reverse: timedelay}));
         });
@@ -80,7 +80,7 @@
                 draggable: false
         });
 
-        circle3.on("touchmove", function() {
+        circle3.on("mousedown", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({right: timedelay}));
         });
@@ -97,7 +97,7 @@
                 draggable: false
         });
 
-        circle4.on("touchmove", function() {
+        circle4.on("mousedown", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({left: timedelay}));
         });
@@ -114,7 +114,7 @@
                 draggable: false
         });
 
-        circle5.on("touchmove", function() {
+        circle5.on("mousedown", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({pivotright: timedelay}));
         });
@@ -131,13 +131,13 @@
                 draggable: false
         });
 
-        circle6.on("touchmove", function() {
+        circle6.on("mousedown", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({pivotleft: timedelay}));
         });
 
         layer.add(circle6);	
-
+	
         stage.add(layer);
       };
  
