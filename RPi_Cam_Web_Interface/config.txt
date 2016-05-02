@@ -1,0 +1,19 @@
+#This is config file for main installer. Put any extra options in here.
+
+# Enable or disable debug for installer script
+debug="no"
+
+# Rpicam install directory
+rpicamdir=""
+
+# Apache web server port
+webport="22334"
+
+# Webserver security
+security="yes"
+user="picar1"
+passwd="elske123"
+
+# Enable or disable autostart
+autostart="no"
+
