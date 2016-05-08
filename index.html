@@ -3,8 +3,9 @@
   <head>
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">   
     <style>
-      body { margin: 0px; padding: 0px; }
+      body { font-family: Arial, Helvetica, sans-serif;  margin: 0px; padding: 0px; }
       canvas { border: 1px solid #9C9898; }
+      container {width: 200px; margin: 0 auto; }
     </style>
     <script src="http://www.html5canvastutorials.com/libraries/kinetic-v4.7.1-beta.js"></script>
     <script>
@@ -44,21 +45,32 @@
 		fill: "blue",
 		stroke: "black",
 		strokeWidth: 4,
+		text: "fwd",
 		draggable: false
         });
  
-        circle.on("mousedown", function() {
+        circle.on("mousedown touchmove", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({forward: timedelay}));
         });
  		
-	circle.on("mouseup", function() {
+	circle.on("mouseup touchend", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({stop: timedelay}));
         });
 		
-        layer.add(circle);
+	var text = new Kinetic.Text({
+  	x: 90,
+  	y: 80,
+  	text: 'fwd',
+  	fontSize: 15,
+  	fontFamily: 'Arial',
+  	fill: 'black'
+	});
 
+        layer.add(circle);
+	 layer.add(text);
+	
         var circle2 = new Kinetic.Circle({
 		x: 100,
 		y: 200,
@@ -69,12 +81,12 @@
 		draggable: false
         });
  
-        circle2.on("mousedown", function() {
+        circle2.on("mousedown touchmove", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({reverse: timedelay}));
         });
 
-	circle2.on("mouseup", function() {
+	circle2.on("mouseup touchend", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({stop: timedelay}));
         });
@@ -91,12 +103,12 @@
                 draggable: false
         });
 
-        circle3.on("mousedown", function() {
+        circle3.on("mousedown touchmove", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({right: timedelay}));
         });
 
-	circle3.on("mouseup", function() {
+	circle3.on("mouseup touchend", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({stop: timedelay}));
         });
@@ -114,12 +126,12 @@
                 draggable: false
         });
 
-        circle4.on("mousedown", function() {
+        circle4.on("mousedown touchmove", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({left: timedelay}));
         });
 
-	 circle4.on("mouseup", function() {
+	 circle4.on("mouseup touchend", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({stop: timedelay}));
         });
@@ -136,12 +148,12 @@
                 draggable: false
         });
 
-        circle5.on("mousedown", function() {
+        circle5.on("mousedown touchmove", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({pivotright: timedelay}));
         });
 
-	circle5.on("mouseup", function() {
+	circle5.on("mouseup touchend", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({stop: timedelay}));
         });
@@ -159,12 +171,12 @@
                 draggable: false
         });
 
-        circle6.on("mousedown", function() {
+        circle6.on("mousedown touchmove", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({pivotleft: timedelay}));
         });
 
-	circle6.on("mouseup", function() {
+	circle6.on("mouseup touchend", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({stop: timedelay}));
         });
