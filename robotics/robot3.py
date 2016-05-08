@@ -75,7 +75,7 @@ def pivot_left(tf):
     time.sleep(tf)
 #    gpio.cleanup()
 
-def stop(tf)
+def stop(tf):
     gpio.output(7, False)
     gpio.output(11, False)
     gpio.output(13, False)
@@ -83,5 +83,5 @@ def stop(tf)
     time.sleep(tf)
 
 
-#gpio.cleanup()
+gpio.cleanup()
 
