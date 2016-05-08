@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">   
     <style>
       body { margin: 0px; padding: 0px; }
       canvas { border: 1px solid #9C9898; }
@@ -47,18 +46,17 @@
 		draggable: false
         });
  
-        circle.on("mousedown", function() {
+        circle.on("touchstart", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({forward: timedelay}));
         });
  		
-	circle.on("mouseup", function() {
+	circle.on("touchend", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({stop: timedelay}));
         });
 		
         layer.add(circle);
-
         var circle2 = new Kinetic.Circle({
 		x: 100,
 		y: 200,
@@ -69,12 +67,11 @@
 		draggable: false
         });
  
-        circle2.on("mousedown", function() {
+        circle2.on("touchstart", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({reverse: timedelay}));
         });
-
-	circle2.on("mouseup", function() {
+	circle2.on("touchend", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({stop: timedelay}));
         });
@@ -90,18 +87,14 @@
                 strokeWidth: 4,
                 draggable: false
         });
-
-        circle3.on("mousedown", function() {
+        circle3.on("touchstart", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({right: timedelay}));
         });
-
-	circle3.on("mouseup", function() {
+	circle3.on("touchend", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({stop: timedelay}));
         });
-
-
         layer.add(circle3);
 	
 	var circle4 = new Kinetic.Circle({
@@ -113,17 +106,14 @@
                 strokeWidth: 4,
                 draggable: false
         });
-
-        circle4.on("mousedown", function() {
+        circle4.on("touchstart", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({left: timedelay}));
         });
-
-	 circle4.on("mouseup", function() {
+	 circle4.on("touchend", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({stop: timedelay}));
         });
-
         layer.add(circle4);
 	
 	 var circle5 = new Kinetic.Circle({
@@ -135,22 +125,17 @@
                 strokeWidth: 4,
                 draggable: false
         });
-
-        circle5.on("mousedown", function() {
+        circle5.on("touchstart", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({pivotright: timedelay}));
         });
-
-	circle5.on("mouseup", function() {
+	circle5.on("touchend", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({stop: timedelay}));
         });
-
-
         layer.add(circle5);
-
 	 var circle6 = new Kinetic.Circle({
-                x: 50,
+                x: 
                 y: 250,
                 radius: 30,
                 fill: "red",
@@ -158,18 +143,14 @@
                 strokeWidth: 4,
                 draggable: false
         });
-
-        circle6.on("mousedown", function() {
+        circle6.on("touchstart", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({pivotleft: timedelay}));
         });
-
-	circle6.on("mouseup", function() {
+	circle6.on("touchend", function() {
           var timedelay = 0.030
           sendMessage(JSON.stringify({stop: timedelay}));
         });
-
-
         layer.add(circle6);	
 	
         stage.add(layer);
