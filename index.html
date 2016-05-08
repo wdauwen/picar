@@ -50,7 +50,12 @@
           var timedelay = 0.030
           sendMessage(JSON.stringify({forward: timedelay}));
         });
- 
+ 		
+	circle.on("mouseup", function() {
+          var timedelay = 0.030
+          sendMessage(JSON.stringify({stop: timedelay}));
+        });
+		
         layer.add(circle);
 
         var circle2 = new Kinetic.Circle({

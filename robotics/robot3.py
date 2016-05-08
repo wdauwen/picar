@@ -17,7 +17,7 @@ def init():
 
 def reverse(tf):
 #    gpio.cleanup()
-    init()
+#    init()
     gpio.output(7, False)
     gpio.output(11, True)
     gpio.output(13, True)
@@ -27,7 +27,7 @@ def reverse(tf):
 
 def forward(tf):
 #    gpio.cleanup()
-    init()
+#    init()
     gpio.output(7, True)
     gpio.output(11, False)
     gpio.output(13, False)
@@ -37,7 +37,7 @@ def forward(tf):
 
 def turn_right(tf):
 #    gpio.cleanup()
-    init()
+#    init()
     gpio.output(7, True)
     gpio.output(11, True)
     gpio.output(13, True)
@@ -47,7 +47,7 @@ def turn_right(tf):
 
 def turn_left(tf):
 #    gpio.cleanup()
-    init()
+#    init()
     gpio.output(7, False)
     gpio.output(11, True)
     gpio.output(13, False)
@@ -57,7 +57,7 @@ def turn_left(tf):
 
 def pivot_right(tf):
 #    gpio.cleanup()
-    init()
+#    init()
     gpio.output(7, True)
     gpio.output(11, False)
     gpio.output(13, True)
@@ -67,7 +67,7 @@ def pivot_right(tf):
 
 def pivot_left(tf):
 #    gpio.cleanup()
-    init()
+#    init()
     gpio.output(7, False)
     gpio.output(11, True)
     gpio.output(13, False)
@@ -75,5 +75,13 @@ def pivot_left(tf):
     time.sleep(tf)
 #    gpio.cleanup()
 
-gpio.cleanup()
+def stop(tf)
+    gpio.output(7, False)
+    gpio.output(11, False)
+    gpio.output(13, False)
+    gpio.output(15, False)
+    time.sleep(tf)
+
+
+#gpio.cleanup()
 

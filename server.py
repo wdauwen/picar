@@ -30,6 +30,7 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
 	    'left' : robot.turn_left,
             'pivotright' : robot.pivot_right,
             'pivotleft' : robot.pivot_left,
+	    'stop' : robot.stop,
 	        }
 
         message_dict = json.loads(message)
@@ -45,7 +46,7 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
         print 'connection closed'
  
 if __name__ == "__main__":
-#    robot.init()
+    robot.init()
 
     tornado.options.parse_command_line()
     app = tornado.web.Application(
