@@ -5,7 +5,7 @@
 ++ debug=no
 ++ rpicamdir=
 ++ webport=22334
-++ security=yes
+++ security=no
 ++ user=picar1
 ++ passwd=elske123
 ++ autostart=no

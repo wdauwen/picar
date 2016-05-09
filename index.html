@@ -3,10 +3,27 @@
   <head>
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">   
     <style>
-      body { font-family: Arial, Helvetica, sans-serif;  margin: 0px; padding: 0px; }
+      body { font-family: Arial, Helvetica, sans-serif;  width: 200px; margin: 0 auto; padding: 0px; }
       canvas { border: 1px solid #9C9898; }
-      container {width: 200px; margin: 0 auto; }
+      #container {width: 200px; margin: 0 auto; }
     </style>
+    <script src="script_min.js"></script>
+    <script>
+	var mjpeg_img;
+ 
+	function reload_img () {
+  	mjpeg_img.src = "http://192.168.0.194:22334/cam_pic.php?time=" + new Date().getTime();
+	}
+	function error_img () {
+  	setTimeout("mjpeg_img.src = 'http://192168.0.194:22334/cam_pic.php?time=' + new Date().getTime();", 100);
+	}
+	function init() {
+  	mjpeg_img = document.getElementById("mjpeg_dest");
+  	mjpeg_img.onload = reload_img;
+  	mjpeg_img.onerror = error_img;
+  	reload_img();
+	}
+    </script>
     <script src="http://www.html5canvastutorials.com/libraries/kinetic-v4.7.1-beta.js"></script>
     <script>
  
@@ -189,11 +206,11 @@
  
     </script>
   </head>
-  <body>
-    <h1>Websockettest for Picar1</h1>
+  <body onload="setTimeout('init();', 100);">
+    <h1>Picar1</h1>
+    <div><img id="mjpeg_dest" style="width:200px;"/></div> 	
+    <div id="container"></div>
     <p>This is a websocket testpage for Willem Dauwen's thesis at UCLL, formerly known as ACE Group T</p>
     <p>The aim of this project is to drive an RC car over wifi signals from a remote pc, tablet or mobile device</p>
-    <img src="http://192.168.0.194:22334/cam_pic.php?time=1462741815034&pDelay=40000"> 	
-    <div id="container"></div>
   </body>
 </html>

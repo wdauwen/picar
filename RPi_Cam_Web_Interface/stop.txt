@@ -1,0 +1,15 @@
++++ readlink -f stop.sh
+++ dirname /home/pi/picar/RPi_Cam_Web_Interface/stop.sh
++ cd /home/pi/picar/RPi_Cam_Web_Interface
++ source ./config.txt
+++ debug=no
+++ rpicamdir=
+++ webport=22334
+++ security=no
+++ user=picar1
+++ passwd=elske123
+++ autostart=no
++ fn_stop
++ sudo killall raspimjpeg
++ sudo killall php
++ sudo killall motion
