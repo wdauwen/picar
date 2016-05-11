@@ -10,7 +10,7 @@ rpicamdir=""
 webport="22334"
 
 # Webserver security
-security="no"
+security="yes"
 user="picar1"
 passwd="elske123"
 

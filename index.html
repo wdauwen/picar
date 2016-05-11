@@ -12,10 +12,10 @@
 	var mjpeg_img;
  
 	function reload_img () {
-  	mjpeg_img.src = "http://192.168.0.194:22334/cam_pic.php?time=" + new Date().getTime();
+  	mjpeg_img.src = "http://84.193.214.148:22334/cam_pic.php?time=" + new Date().getTime();
 	}
 	function error_img () {
-  	setTimeout("mjpeg_img.src = 'http://192168.0.194:22334/cam_pic.php?time=' + new Date().getTime();", 100);
+  	setTimeout("mjpeg_img.src = 'http://84.193.214.148:22334/cam_pic.php?time=' + new Date().getTime();", 100);
 	}
 	function init() {
   	mjpeg_img = document.getElementById("mjpeg_dest");
@@ -107,9 +107,20 @@
           var timedelay = 0.030
           sendMessage(JSON.stringify({stop: timedelay}));
         });
- 
+ 	
+	var text2 = new Kinetic.Text({
+        x: 90,
+        y: 80,
+        text: 'rev',
+        fontSize: 15,
+        fontFamily: 'Arial',
+        fill: 'black'
+        });
+
+
         layer.add(circle2);
-	
+	layer.add(text2);	
+
 	var circle3 = new Kinetic.Circle({
                 x: 150,
                 y: 150,
@@ -208,7 +219,7 @@
   </head>
   <body onload="setTimeout('init();', 100);">
     <h1>Picar1</h1>
-    <div><img id="mjpeg_dest" style="width:200px;"/></div> 	
+    <div><img id="mjpeg_dest" style="width:200px;" alt="video not available"/></div> 	
     <div id="container"></div>
     <p>This is a websocket testpage for Willem Dauwen's thesis at UCLL, formerly known as ACE Group T</p>
     <p>The aim of this project is to drive an RC car over wifi signals from a remote pc, tablet or mobile device</p>
