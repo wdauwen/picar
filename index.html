@@ -12,7 +12,7 @@
 	var mjpeg_img;
  
 	function reload_img () {
-  	mjpeg_img.src = "http://84.193.214.148:22334/cam_pic.php?time=" + new Date().getTime();
+  	mjpeg_img.src = "http://192.168.0.129:22334/cam_pic.php?time=" + new Date().getTime();
 	}
 	function error_img () {
   	setTimeout("mjpeg_img.src = 'http://84.193.214.148:22334/cam_pic.php?time=' + new Date().getTime();", 100);
@@ -110,7 +110,7 @@
  	
 	var text2 = new Kinetic.Text({
         x: 90,
-        y: 80,
+        y: 230,
         text: 'rev',
         fontSize: 15,
         fontFamily: 'Arial',
@@ -141,9 +141,18 @@
           sendMessage(JSON.stringify({stop: timedelay}));
         });
 
-
-        layer.add(circle3);
+	var text3 = new Kinetic.Text({
+        x: 140,
+        y: 180,
+        text: 'right',
+        fontSize: 15,
+        fontFamily: 'Arial',
+        fill: 'black'
+        });
 	
+        layer.add(circle3);
+	layer.add(text3);	
+
 	var circle4 = new Kinetic.Circle({
                 x: 50,
                 y: 150,
@@ -164,8 +173,19 @@
           sendMessage(JSON.stringify({stop: timedelay}));
         });
 
+	var text4 = new Kinetic.Text({
+        x: 40,
+        y: 180,
+        text: 'left',
+        fontSize: 15,
+        fontFamily: 'Arial',
+        fill: 'black'
+        });
+
+
         layer.add(circle4);
-	
+	layer.add(text4);
+
 	 var circle5 = new Kinetic.Circle({
                 x: 150,
                 y: 250,
@@ -186,8 +206,17 @@
           sendMessage(JSON.stringify({stop: timedelay}));
         });
 
+	var text5 = new Kinetic.Text({
+        x: 140,
+        y: 280,
+        text: 'piv-right',
+        fontSize: 15,
+        fontFamily: 'Arial',
+        fill: 'black'
+        });
 
         layer.add(circle5);
+	layer.add(text5);
 
 	 var circle6 = new Kinetic.Circle({
                 x: 50,
@@ -209,8 +238,17 @@
           sendMessage(JSON.stringify({stop: timedelay}));
         });
 
+	var text6 = new Kinetic.Text({
+        x: 40,
+        y: 280,
+        text: 'piv-left',
+        fontSize: 15,
+        fontFamily: 'Arial',
+        fill: 'black'
+        });
 
-        layer.add(circle6);	
+        layer.add(circle6);
+	layer.add(text6);	
 	
         stage.add(layer);
       };
@@ -218,10 +256,10 @@
     </script>
   </head>
   <body onload="setTimeout('init();', 100);">
-    <h1>Picar1</h1>
+    <h1>Picar</h1>
     <div><img id="mjpeg_dest" style="width:200px;" alt="video not available"/></div> 	
     <div id="container"></div>
-    <p>This is a websocket testpage for Willem Dauwen's thesis at UCLL, formerly known as ACE Group T</p>
+    <p>This is the controls page for Willem's thesis at Mobyus, formerly known as Ace GroepT</p>
     <p>The aim of this project is to drive an RC car over wifi signals from a remote pc, tablet or mobile device</p>
   </body>
 </html>
